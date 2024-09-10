@@ -1,0 +1,10 @@
+name: az-aks
+runtime:
+  name: nodejs
+  options:
+    packagemanager: npm
+description: Create an AKS cluster
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: azure-typescript

@@ -9,5 +9,5 @@ spec:
   resources:
     requests:
       storage: 100Gi
-  storageClassName: gp2immediate
+  storageClassName: azurefile-premium
 EOF

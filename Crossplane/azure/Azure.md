@@ -18,7 +18,7 @@ Run the following, copy the output, and save it to a file called `azure.json`
 az ad sp create-for-rbac \
 --sdk-auth \
 --role Owner \
---scopes /subscriptions/your_sub_id
+--scopes /subscriptions/SUBID
 ```
 
 ```
@@ -45,17 +45,15 @@ spec:
 EOF
 ```
 
-```
-cat <<EOF | kubectl create -f -
+cat <<EOF | kubectl apply -f -
 apiVersion: network.azure.upbound.io/v1beta1
 kind: VirtualNetwork
 metadata:
-  name: vnet
+  name: vnetcrossplane
 spec:
   forProvider:
     addressSpace:
-      - 10.0.0.0/16
-    location: "US East"
-    resourceGroupName: devrel-as-a-service
+      - 192.168.0.0/16
+    location: "East US"
+    resourceGroupName: devrelasaservice
 EOF
-```
